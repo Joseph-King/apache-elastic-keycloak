@@ -1,0 +1,1 @@
+curl --user 'elastic:elastic' http://localhost:9200

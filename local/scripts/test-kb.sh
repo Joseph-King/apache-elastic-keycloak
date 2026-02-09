@@ -1,0 +1,1 @@
+curl --user 'kibana_system:kibana' http://localhost:9200

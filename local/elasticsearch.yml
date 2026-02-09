@@ -1,0 +1,20 @@
+services:
+  elasticsearch:
+    image: elasticsearch:8.19.11
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - path.repo=/opt/snapshots
+      - ELASTIC_PASSWORD=elastic
+    ports:
+      - "9200:9200"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+      - es-snapshots:/opt/snapshots
+
+volumes:
+  es-data:
+    driver: local
+  es-snapshots:
+    driver: local

@@ -1,0 +1,10 @@
+services:
+  filebeat:
+    image: elastic/filebeat:8.19.11
+    # user: root
+    # environment:
+    #   - strict.perms=false
+    volumes:
+      - ./conf/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./conf/filebeat/apache.yml:/usr/share/filebeat/modules.d/apache.yml:ro
+      - /var/log/apache2:/var/log/apache2:ro
